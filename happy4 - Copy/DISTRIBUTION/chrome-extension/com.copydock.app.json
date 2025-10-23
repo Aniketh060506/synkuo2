@@ -1,0 +1,9 @@
+{
+  "name": "com.copydock.app",
+  "description": "CopyDock Desktop App Native Messaging Host",
+  "path": "/path/to/copydock/native-messaging-host",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://YOUR_EXTENSION_ID_HERE/"
+  ]
+}

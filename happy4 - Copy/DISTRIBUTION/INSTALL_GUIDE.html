@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopyDock Installation Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .info {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 CopyDock Desktop</h1>
+        <p class="subtitle">Complete Installation Guide</p>
+
+        <div class="success">
+            <strong>✨ Quick Install Time:</strong> 5-10 minutes<br>
+            <strong>💾 Disk Space Needed:</strong> ~500 MB<br>
+            <strong>🖥️ Windows Version:</strong> Windows 10/11 (64-bit)
+        </div>
+
+        <h2>🎯 What You'll Get</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="emoji">📝</div>
+                <strong>Rich Text Editor</strong>
+                <p>Tables, lists, links</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji">✅</div>
+                <strong>Todo System</strong>
+                <p>Multi-level organization</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji">🌐</div>
+                <strong>Web Clipper</strong>
+                <p>Chrome extension</p>
+            </div>
+            <div class="feature-card">
+                <div class="emoji">📊</div>
+                <strong>Analytics</strong>
+                <p>Track your productivity</p>
+            </div>
+        </div>
+
+        <h2>📋 Prerequisites</h2>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Python 3.8 or newer</strong>
+            <div style="margin-top: 10px;">
+                <a href="https://www.python.org/downloads/" class="button" target="_blank">Download Python</a>
+                <div class="warning" style="margin-top: 15px;">
+                    <strong>⚠️ IMPORTANT:</strong> During Python installation, make sure to check the box that says 
+                    <strong>"Add Python to PATH"</strong> on the first screen!
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Node.js 16 or newer</strong>
+            <div style="margin-top: 10px;">
+                <a href="https://nodejs.org/" class="button" target="_blank">Download Node.js</a>
+                <div class="info" style="margin-top: 15px;">
+                    Choose the <strong>LTS (Long Term Support)</strong> version for stability.
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Verify Installation</strong>
+            <p>Open Command Prompt and run these commands:</p>
+            <div class="code-block">python --version<br>node --version<br>npm --version</div>
+            <p style="margin-top: 10px;">You should see version numbers for all three. If you see errors, reinstall the missing software.</p>
+        </div>
+
+        <h2>🚀 Installation Steps</h2>
+
+        <h3>Part 1: Desktop App Setup</h3>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Extract Files</strong>
+            <ul>
+                <li>Extract the <code>copydock-app</code> folder to a location of your choice</li>
+                <li>Recommended: <code>C:\Program Files\CopyDock\</code></li>
+                <li>Or anywhere you prefer: <code>C:\Users\YourName\CopyDock\</code></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Run the App</strong>
+            <ul>
+                <li>Navigate to the <code>copydock-app</code> folder</li>
+                <li>Double-click <code>START.bat</code></li>
+                <li>First launch will take 1-2 minutes (installing dependencies)</li>
+                <li>Subsequent launches will be much faster (~10 seconds)</li>
+            </ul>
+            <div class="success" style="margin-top: 15px;">
+                ✅ If everything works, the CopyDock window will open automatically!
+            </div>
+        </div>
+
+        <h3>Part 2: Chrome Extension Setup</h3>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Load Extension in Chrome</strong>
+            <ul>
+                <li>Open Google Chrome</li>
+                <li>Type in address bar: <code>chrome://extensions/</code></li>
+                <li>Turn ON <strong>"Developer mode"</strong> (toggle in top-right)</li>
+                <li>Click <strong>"Load unpacked"</strong></li>
+                <li>Select the <code>chrome-extension</code> folder from this distribution</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Test the Extension</strong>
+            <ul>
+                <li>Make sure desktop app is running</li>
+                <li>Go to any website (e.g., Wikipedia)</li>
+                <li>Select some text</li>
+                <li>A floating button "📋 Send to CopyDock" should appear</li>
+                <li>Click it to save the text</li>
+                <li>Check your desktop app - the content should appear!</li>
+            </ul>
+        </div>
+
+        <h2>🛠️ Troubleshooting</h2>
+
+        <h3>Problem: "Python not found"</h3>
+        <ul>
+            <li>Reinstall Python with "Add to PATH" checked</li>
+            <li>Or manually add Python to PATH:
+                <ul>
+                    <li>Search Windows for "Environment Variables"</li>
+                    <li>Edit System Environment Variables</li>
+                    <li>Add Python installation path to PATH variable</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Problem: "Node not found"</h3>
+        <ul>
+            <li>Restart your computer after installing Node.js</li>
+            <li>Node.js should automatically add itself to PATH</li>
+        </ul>
+
+        <h3>Problem: Extension shows "Disconnected"</h3>
+        <ul>
+            <li>Make sure desktop app (<code>START.bat</code>) is running</li>
+            <li>Backend must be active on port 8001</li>
+            <li>Test by opening: <a href="http://localhost:8001/docs" target="_blank">http://localhost:8001/docs</a></li>
+        </ul>
+
+        <h3>Problem: Port 8001 already in use</h3>
+        <ul>
+            <li>Close any other apps using port 8001</li>
+            <li>Or edit <code>copydock-app/backend/server.py</code> and change the port number</li>
+        </ul>
+
+        <h2>💾 Your Data</h2>
+        <div class="info">
+            <strong>Storage Location:</strong><br>
+            All your notes and todos are saved locally in:<br>
+            <code>C:\Users\YourName\.copydock\storage.json</code>
+            <br><br>
+            <strong>Privacy:</strong> Your data never leaves your computer. Everything is stored locally!
+        </div>
+
+        <h2>🔄 Updating</h2>
+        <p>To update to a new version:</p>
+        <ol>
+            <li>Close the app (close START.bat window)</li>
+            <li>Delete the old <code>copydock-app</code> folder</li>
+            <li>Extract the new version</li>
+            <li>Your data is safe (it's stored in your user folder)</li>
+        </ol>
+
+        <h2>📞 Need Help?</h2>
+        <ul>
+            <li>Check the <code>README.md</code> file for more details</li>
+            <li>Look at logs: <code>copydock-app/backend.log</code></li>
+            <li>Make sure all prerequisites are installed correctly</li>
+        </ul>
+
+        <div class="success" style="margin-top: 30px; text-align: center; font-size: 1.2em;">
+            <strong>🎉 You're all set! Enjoy CopyDock!</strong>
+        </div>
+    </div>
+</body>
+</html>

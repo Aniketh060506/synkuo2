@@ -1,0 +1,273 @@
+/* Enhanced Image Styles for TipTap Editor */
+
+/* Image container wrapper */
+.ProseMirror .image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 16px auto;
+}
+
+/* Image container styles */
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: block;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+/* Quick resize classes that override max-width */
+.ProseMirror img[style*="width: 300px"] {
+  width: 300px !important;
+  max-width: 300px !important;
+}
+
+.ProseMirror img[style*="width: 500px"] {
+  width: 500px !important;
+  max-width: 500px !important;
+}
+
+.ProseMirror img[style*="width: 800px"] {
+  width: 800px !important;
+  max-width: 800px !important;
+}
+
+.ProseMirror img[style*="width: 100%"] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Hover effect for all images */
+.ProseMirror img:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  border: 2px solid rgba(59, 130, 246, 0.5);
+}
+
+/* Show resize handles on hover */
+.ProseMirror img:hover::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #3b82f6;
+  border: 3px solid white;
+  border-radius: 3px;
+  cursor: se-resize;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.ProseMirror img:hover::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: #3b82f6;
+  border: 3px solid white;
+  border-radius: 3px;
+  cursor: nw-resize;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Selected images - TipTap and custom classes */
+.ProseMirror img.ProseMirror-selectednode,
+.ProseMirror img.selected-image {
+  border: 3px solid #3b82f6 !important;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5) !important;
+  outline: none !important;
+}
+
+/* Enhanced resize handles for selected images */
+.ProseMirror img.ProseMirror-selectednode::before,
+.ProseMirror img.selected-image::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  right: -12px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #3b82f6 !important;
+  border: 4px solid white !important;
+  border-radius: 4px !important;
+  cursor: se-resize !important;
+  z-index: 1000 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5) !important;
+}
+
+.ProseMirror img.ProseMirror-selectednode::after,
+.ProseMirror img.selected-image::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: -12px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #3b82f6 !important;
+  border: 4px solid white !important;
+  border-radius: 4px !important;
+  cursor: nw-resize !important;
+  z-index: 1000 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5) !important;
+}
+
+/* Clicked/Active state for images */
+.ProseMirror img.image-active {
+  border: 3px solid #3b82f6 !important;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5) !important;
+}
+
+.ProseMirror img.image-active::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -12px !important;
+  right: -12px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #3b82f6 !important;
+  border: 4px solid white !important;
+  border-radius: 4px !important;
+  cursor: se-resize !important;
+  z-index: 1000 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5) !important;
+}
+
+.ProseMirror img.image-active::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: -12px !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #3b82f6 !important;
+  border: 4px solid white !important;
+  border-radius: 4px !important;
+  cursor: nw-resize !important;
+  z-index: 1000 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5) !important;
+}
+
+/* Drag and drop overlay styles */
+.drag-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px dashed #3b82f6;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-message {
+  background: #3b82f6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Image upload button styles */
+.image-upload-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-upload-btn input[type="file"] {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+/* Custom image toolbar for selected images */
+.image-toolbar {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.ProseMirror img:hover + .image-toolbar,
+.image-toolbar:hover,
+.ProseMirror img.ProseMirror-selectednode + .image-toolbar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-toolbar button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.image-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive image sizing */
+@media (max-width: 768px) {
+  .ProseMirror img {
+    max-width: 100%;
+    margin: 12px auto;
+  }
+}
+
+/* Image alignment classes */
+.ProseMirror .image-left {
+  float: left;
+  margin: 0 16px 16px 0;
+}
+
+.ProseMirror .image-right {
+  float: right;
+  margin: 0 0 16px 16px;
+}
+
+.ProseMirror .image-center {
+  display: block;
+  margin: 16px auto;
+}
+
+/* Image size classes */
+.ProseMirror .image-small {
+  max-width: 300px;
+}
+
+.ProseMirror .image-medium {
+  max-width: 500px;
+}
+
+.ProseMirror .image-large {
+  max-width: 800px;
+}
+
+.ProseMirror .image-full {
+  max-width: 100%;
+}

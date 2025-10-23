@@ -1,0 +1,9 @@
+{
+  "name": "com.synkup.app",
+  "description": "SynkUp Desktop App Native Messaging Host",
+  "path": "SYNKUP_NATIVE_HOST_PATH",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://*/*"
+  ]
+}

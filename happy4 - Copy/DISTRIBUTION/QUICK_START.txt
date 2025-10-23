@@ -1,0 +1,101 @@
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║       📦 CopyDock Desktop App - Quick Start Guide        ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+
+🚀 QUICK SETUP (5 minutes)
+
+STEP 1: Install Prerequisites
+────────────────────────────────
+Download and install (if not already installed):
+
+  ✓ Python 3.8+  →  https://www.python.org/downloads/
+    ⚠️ IMPORTANT: Check "Add Python to PATH" during install!
+
+  ✓ Node.js 16+  →  https://nodejs.org/
+    Download the LTS (Long Term Support) version
+
+
+STEP 2: Start Desktop App
+────────────────────────────────
+  1. Extract the 'copydock-app' folder anywhere on your computer
+  2. Double-click START.bat inside 'copydock-app' folder
+  3. Wait for the app to open (takes 10-30 seconds first time)
+  4. ✅ Done! The app window should appear
+
+
+STEP 3: Install Chrome Extension
+────────────────────────────────
+  1. Open Chrome browser
+  2. Go to:  chrome://extensions/
+  3. Turn ON "Developer mode" (top-right toggle)
+  4. Click "Load unpacked"
+  5. Select the 'chrome-extension' folder
+  6. ✅ Extension installed!
+
+
+STEP 4: Test It
+────────────────────────────────
+  1. Make sure desktop app is running
+  2. Go to any website in Chrome
+  3. Select some text
+  4. Click the floating "Send to CopyDock" button
+  5. Check desktop app - your text should be there!
+
+
+═══════════════════════════════════════════════════════════
+
+📁 WHAT'S IN THIS PACKAGE?
+
+copydock-app/           ← Main application
+  ├── START.bat         ← Double-click this to run!
+  ├── backend/          ← Python FastAPI backend
+  ├── frontend/         ← React app (built)
+  └── electron/         ← Electron wrapper
+
+chrome-extension/       ← Chrome extension files
+  └── manifest.json     ← Extension config
+
+README.md              ← Full documentation
+
+═══════════════════════════════════════════════════════════
+
+🛠️ TROUBLESHOOTING
+
+Problem: START.bat shows "Python not found"
+Solution: Install Python and make sure "Add to PATH" is checked
+
+Problem: START.bat shows "Node not found"
+Solution: Install Node.js from nodejs.org
+
+Problem: Extension shows "Disconnected"
+Solution: Make sure desktop app is running (START.bat)
+
+Problem: Port 8001 already in use
+Solution: Close other apps or change port in backend/server.py
+
+═══════════════════════════════════════════════════════════
+
+✨ FEATURES
+
+✓ Rich text editor (tables, lists, code blocks, links)
+✓ Multi-level todo system (Year → Month → Day → Hour)
+✓ Web clipper via Chrome extension
+✓ Analytics dashboard with streak tracking  
+✓ Search and organize notes
+✓ Local storage (your data stays private)
+
+═══════════════════════════════════════════════════════════
+
+💡 TIPS
+
+→ Keep START.bat running while using the app
+→ Your data is saved in: C:\Users\YourName\.copydock\
+→ To update: Replace copydock-app folder with new version
+→ Check README.md for advanced setup options
+
+═══════════════════════════════════════════════════════════
+
+🎉 That's it! Enjoy CopyDock!
+

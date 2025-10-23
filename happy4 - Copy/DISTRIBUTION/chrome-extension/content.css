@@ -1,0 +1,89 @@
+/* CopyDock Chrome Extension - Content Styles */
+
+#copydock-floating-button {
+  position: absolute;
+  z-index: 999999;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateY(-5px) scale(0.95);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+#copydock-floating-button.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+#copydock-floating-button:hover {
+  background: linear-gradient(135deg, #2563EB 0%, #1E3A8A 100%);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px) scale(1.02);
+}
+
+#copydock-floating-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+#copydock-floating-button.loading {
+  background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* Toast Notification */
+.copydock-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000000;
+  padding: 12px 20px;
+  background: #1F2937;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.copydock-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.copydock-toast-success {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  border-left: 4px solid #34D399;
+}
+
+.copydock-toast-error {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  border-left: 4px solid #F87171;
+}
+
+.copydock-toast-warning {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  border-left: 4px solid #FBBF24;
+}
+
+.copydock-toast-info {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  border-left: 4px solid #60A5FA;
+}

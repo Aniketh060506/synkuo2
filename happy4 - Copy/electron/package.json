@@ -1,0 +1,92 @@
+{
+  "name": "synkup-desktop",
+  "version": "1.0.0",
+  "description": "SynkUp Desktop App - Note-taking with Chrome Extension Integration",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win --x64",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": ["notes", "todo", "chrome-extension", "web-clipper"],
+  "author": "SynkUp",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  },
+  "build": {
+    "appId": "com.synkup.app",
+    "productName": "SynkUp",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "launcher.js",
+      "native-messaging-host.js",
+      "setup-native-messaging.bat",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend/dist/copydock-backend.exe",
+        "to": "backend/copydock-backend.exe"
+      },
+      {
+        "from": "../frontend/build",
+        "to": "frontend",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../chrome-extension",
+        "to": "chrome-extension",
+        "filter": ["**/*", "!*.md", "!create-icons.js", "!generate-icons.html", "!create_icons.html"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "publisherName": "SynkUp",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "menuCategory": "SynkUp",
+      "shortcutName": "SynkUp",
+      "artifactName": "SynkUp-Setup-${version}.exe",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "license": "../LICENSE.txt",
+      "warningsAsErrors": false
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.png",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+      "category": "Office"
+    }
+  }
+}
