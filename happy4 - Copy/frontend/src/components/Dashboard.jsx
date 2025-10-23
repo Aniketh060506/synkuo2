@@ -112,6 +112,7 @@ export default function Dashboard({ notebook, onBack, onSaveNotebook }) {
       TaskItem.configure({
         nested: true,
       }),
+      ResizableImage,
     ],
     content: notebook?.content || '',
     editorProps: {
