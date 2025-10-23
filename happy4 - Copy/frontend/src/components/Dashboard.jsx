@@ -13,7 +13,8 @@ import { Underline } from '@tiptap/extension-underline';
 import { Link } from '@tiptap/extension-link';
 import { TaskList } from '@tiptap/extension-task-list';
 import { TaskItem } from '@tiptap/extension-task-item';
-import { useState, useEffect } from 'react';
+import { ResizableImage } from './extensions/ResizableImage';
+import { useState, useEffect, useRef } from 'react';
 import {
   Bold,
   Italic,
@@ -45,6 +46,7 @@ import {
   Rows,
   Columns,
   Download,
+  ImagePlus,
 } from 'lucide-react';
 
 export default function Dashboard({ notebook, onBack, onSaveNotebook }) {
