@@ -256,3 +256,67 @@ button.bg-white {
         transform: rotate(360deg);
     }
 }
+
+
+/* =====================
+   Resizable Image Styles
+   ===================== */
+.resizable-image-wrapper {
+  display: inline-block;
+  margin: 1rem 0;
+  user-select: none;
+}
+
+.resizable-image-container {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resizable-image-container.selected {
+  z-index: 10;
+}
+
+.resizable-image-container.dragging {
+  cursor: grabbing !important;
+  z-index: 100;
+}
+
+.resizable-image-container img {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.resize-handle {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.resizable-image-container:hover .resize-handle,
+.resizable-image-container.selected .resize-handle {
+  opacity: 1;
+}
+
+.resize-handle:hover {
+  transform: scale(1.2);
+}
+
+.resize-handle:active {
+  transform: scale(0.9);
+}
+
+/* TipTap Editor Enhancements for Images */
+.ProseMirror .resizable-image-wrapper {
+  cursor: default;
+}
+
+.ProseMirror .resizable-image-wrapper.ProseMirror-selectednode {
+  outline: none;
+}
+
+/* Ensure smooth interactions */
+.resizable-image-container * {
+  box-sizing: border-box;
+}
+
