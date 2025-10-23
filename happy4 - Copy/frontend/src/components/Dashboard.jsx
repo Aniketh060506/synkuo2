@@ -58,6 +58,7 @@ export default function Dashboard({ notebook, onBack, onSaveNotebook }) {
   const [tableCols, setTableCols] = useState('3');
   const [wordCount, setWordCount] = useState(notebook?.wordCount || 0);
   const [characterCount, setCharacterCount] = useState(notebook?.characterCount || 0);
+  const fileInputRef = useRef(null);
   
 
   const editor = useEditor({
