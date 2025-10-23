@@ -199,6 +199,100 @@ export default function Dashboard({ notebook, onBack, onSaveNotebook }) {
     }
   };
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // Calculate dimensions to fit nicely
+        let width = img.width;
+        let height = img.height;
+        const maxWidth = 600;
+        const maxHeight = 400;
+
+        if (width > maxWidth) {
+          height = (height * maxWidth) / width;
+          width = maxWidth;
+        }
+        if (height > maxHeight) {
+          width = (width * maxHeight) / height;
+          height = maxHeight;
+        }
+
+        editor
+          .chain()
+          .focus()
+          .insertContent({
+            type: 'resizableImage',
+            attrs: {
+              src: event.target?.result,
+              width: Math.round(width),
+              height: Math.round(height),
+              x: 0,
+              y: 0,
+            },
+          })
+          .run();
+      };
+      img.src = event.target?.result;
+    };
+    reader.readAsDataURL(file);
+
+    // Reset input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const addImageFromUrl = () => {
+    const url = prompt('Enter image URL:');
+    if (!url) return;
+
+    const img = new Image();
+    img.onload = () => {
+      let width = img.width;
+      let height = img.height;
+      const maxWidth = 600;
+      const maxHeight = 400;
+
+      if (width > maxWidth) {
+        height = (height * maxWidth) / width;
+        width = maxWidth;
+      }
+      if (height > maxHeight) {
+        width = (width * maxHeight) / height;
+        height = maxHeight;
+      }
+
+      editor
+        .chain()
+        .focus()
+        .insertContent({
+          type: 'resizableImage',
+          attrs: {
+            src: url,
+            width: Math.round(width),
+            height: Math.round(height),
+            x: 0,
+            y: 0,
+          },
+        })
+        .run();
+    };
+    img.onerror = () => {
+      alert('Failed to load image. Please check the URL.');
+    };
+    img.src = url;
+  };
+
 
   const colors = [
     '#FFFFFF',
