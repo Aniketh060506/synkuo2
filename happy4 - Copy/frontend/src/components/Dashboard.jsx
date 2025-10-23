@@ -605,6 +605,24 @@ export default function Dashboard({ notebook, onBack, onSaveNotebook }) {
           >
             <TableIcon className="w-4 h-4" />
           </button>
+
+          {/* Image Upload */}
+          <div className="relative">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#1C1C1E] transition-all"
+              title="Upload image"
+            >
+              <ImagePlus className="w-4 h-4" />
+            </button>
+          </div>
           
 
           {/* Table Controls - Show when cursor is in a table */}
